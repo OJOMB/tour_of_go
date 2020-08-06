@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"runtime"
+	"strings"
 	"time"
 )
 
@@ -39,13 +40,13 @@ func main() {
 
 	fmt.Printf("text[0] == 'o': %v\n", text[0] == 'o')
 
-	switch text[0] {
-	case rune("o"):
+	switch {
+	case strings.HasPrefix(text, "o"):
 		fmt.Println("ahh yes, input that starts with an o")
-	case "e":
-		fmt.Println("input should never start with an e!!!")
+	case strings.HasPrefix(text, "e"):
+		fmt.Println("oh no, input should never start with an e!!!")
 	default:
-		fmt.Println("all input should start with an o dont you know")
+		fmt.Println("all input should start with an o dont you know?")
 	}
 
 }
